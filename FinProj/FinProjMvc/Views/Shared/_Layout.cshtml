@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <h1><a class="title-link" href="/">Financial Projector</a></h1>
+            </div>
+            <div class="login">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="menu-inner">
+            <ul>
+                <li>@Html.ActionLink("home", "Index", "Home")</li>
+                <li>@Html.ActionLink("projection", "Index", "Projection")</li>
+                <li>@Html.ActionLink("persons", "Index", "Person")</li>
+                <li>@Html.ActionLink("assets", "Index", "Assets")</li>
+                <li>@Html.ActionLink("about", "Index", "About")</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page">
+        <div class="page-inner">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-inner">
+            Cyber Design Factory
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

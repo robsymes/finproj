@@ -1,0 +1,203 @@
+﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* ******************************************************** */
+
+html, body, h1  {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+
+}
+
+div.header {
+    background-color: #6d4e90;
+    color: #deab30;
+    height: 80px;
+}
+
+div.login {
+    color: #ccc;
+}
+
+div.login a {
+    text-decoration: none;
+    color: #eee;
+}
+
+.header-inner, .menu-inner, .page-inner, .footer-inner {    
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.logo {
+    float: left;
+    padding-top: 16px;
+}
+
+div.login {
+    float: right;
+}
+
+ul.login {
+    list-style-type: none;
+    text-decoration: none;
+    /*display: inline;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+ul.login li {
+    display: inline;
+    padding-left: 8px;
+    padding-right: 8px;    
+}
+
+ul.login a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 1.2em;
+}
+
+.title-link {
+    color: #deab30;
+    text-decoration: none;
+}
+
+div.menu {
+    background-color: #55337a;
+    color: #deab30;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.menu ul {
+    list-style-type: none;
+    text-decoration: none;
+    /*display: inline;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu li {
+    display: inline;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    /*font-size:large;*/
+    font-size: 1.4em;
+}
+
+div.page {
+    padding-bottom:16px;
+    min-height:600px;
+}
+
+div.footer {
+    background-color:#CCC;
+    text-align:center;
+    min-height:240px;
+    padding-top:16px;
+}
+
+table.list {
+    background-color: #CCC;
+    /*border: solid 2px #BBB;*/
+}
+
+table.list th {
+    background-color:#ddd;
+    padding: 4px;
+}
+
+table.list td {
+    background-color:#eee;
+    padding: 4px;
+}
+
+div.panel {
+    border: solid 2px #ccc;
+    background-color:#eee;
+    padding: 0px 16px 16px 16px;
+    margin-bottom: 16px;
+}
+
+table.projection {
+    margin-top: 16px;
+    background-color: #CCC;
+}
+
+table.projection th {
+    background-color:#ddd;
+    padding: 4px;
+}
+
+table.projection td {
+    background-color:#eee;
+    padding: 4px;
+}
+
