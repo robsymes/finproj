@@ -9,107 +9,104 @@ using FinProjMvc.Models;
 
 namespace FinProjMvc.Controllers
 {
-    public class PaymentController : Controller
+    public class CreditController : Controller
     {
         private FinProjMvcContext db = new FinProjMvcContext();
 
         //
-        // GET: /Payment/
+        // GET: /Credit/
 
         public ActionResult Index()
         {
-            return View(db.Payments.ToList());
+            return View(db.Credits.ToList());
         }
 
         //
-        // GET: /Payment/Details/5
+        // GET: /Credit/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Payment payment = db.Payments.Find(id);
-            if (payment == null)
+            Credit credit = db.Credits.Find(id);
+            if (credit == null)
             {
                 return HttpNotFound();
             }
-            return View(payment);
+            return View(credit);
         }
 
         //
-        // GET: /Payment/Create
+        // GET: /Credit/Create
 
-        public ActionResult Create(int assetId)
+        public ActionResult Create()
         {
-            ViewBag.AssetId = assetId;
             return View();
         }
 
         //
-        // POST: /Payment/Create
+        // POST: /Credit/Create
 
         [HttpPost]
-        public ActionResult Create(Payment payment)
+        public ActionResult Create(Credit credit)
         {
             if (ModelState.IsValid)
             {
-                db.Payments.Add(payment);
+                db.Credits.Add(credit);
                 db.SaveChanges();
-                // return RedirectToAction("Index");
-                return RedirectToAction("Payments", "Asset", new { id = payment.AssetId });
+                return RedirectToAction("Index");
             }
 
-            return View(payment);
+            return View(credit);
         }
 
         //
-        // GET: /Payment/Edit/5
+        // GET: /Credit/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Payment payment = db.Payments.Find(id);
-            if (payment == null)
+            Credit credit = db.Credits.Find(id);
+            if (credit == null)
             {
                 return HttpNotFound();
             }
-            return View(payment);
+            return View(credit);
         }
 
         //
-        // POST: /Payment/Edit/5
+        // POST: /Credit/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Payment payment)
+        public ActionResult Edit(Credit credit)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(payment).State = EntityState.Modified;
+                db.Entry(credit).State = EntityState.Modified;
                 db.SaveChanges();
-                // return RedirectToAction("Index");
-                return RedirectToAction("Payments", "Asset", new { id = payment.AssetId });
+                return RedirectToAction("Index");
             }
-            return View(payment);
+            return View(credit);
         }
 
         //
-        // GET: /Payment/Delete/5
+        // GET: /Credit/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Payment payment = db.Payments.Find(id);
-            if (payment == null)
+            Credit credit = db.Credits.Find(id);
+            if (credit == null)
             {
                 return HttpNotFound();
             }
-            return View(payment);
+            return View(credit);
         }
 
         //
-        // POST: /Payment/Delete/5
+        // POST: /Credit/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Payment payment = db.Payments.Find(id);
-            db.Payments.Remove(payment);
+            Credit credit = db.Credits.Find(id);
+            db.Credits.Remove(credit);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

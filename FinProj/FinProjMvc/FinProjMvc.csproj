@@ -168,6 +168,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Controllers\CreditController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProjectionController.cs" />
@@ -306,6 +307,11 @@
     <Content Include="Views\Payment\Edit.cshtml" />
     <Content Include="Views\Payment\Delete.cshtml" />
     <Content Include="Views\Asset\Payments.cshtml" />
+    <Content Include="Views\Credit\Index.cshtml" />
+    <Content Include="Views\Credit\Details.cshtml" />
+    <Content Include="Views\Credit\Create.cshtml" />
+    <Content Include="Views\Credit\Edit.cshtml" />
+    <Content Include="Views\Credit\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,7 +12,6 @@ namespace FinProjMvc.Models
         public int AssetId { get; set; }
 
         [Required(ErrorMessage = "A Date is required")]
-        // [DisplayFormat(DataFormatString="{dd MMM yyyy}")]
         // [DisplayFormat(DataFormatString = "{0:d}")]
         [DisplayFormat(DataFormatString = "{0:MMM yyyy}", ApplyFormatInEditMode=true)]
         public DateTime Date { get; set; }
