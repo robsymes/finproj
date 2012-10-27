@@ -172,6 +172,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProjectionController.cs" />
+    <Compile Include="Dal\EFAssetRepository.cs" />
+    <Compile Include="Dal\IAssetRepository.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -182,6 +184,7 @@
     <Compile Include="Models\FinProjMvcContext.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ProjectionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

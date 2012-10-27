@@ -1,4 +1,5 @@
-﻿@{
+﻿@model FinProjMvc.ViewModels.ProjectionViewModel
+@{
     ViewBag.Title = "Year";
 }
 
@@ -14,19 +15,6 @@
 </table>
 
 <table class="projection-year">
-@*    <tr>
-        <th></th>
-        <th>Apr <a href="/Projection/2010">2010</a></th>
-        <th>Apr <a href="#">2011</a></th>
-        <th>Apr <a href="#">2012</a></th>
-        <th>Apr <a href="#">2013</a></th>
-        <th>Apr <a href="#">2014</a></th>
-        <th>Apr <a href="#">2015</a></th>
-        <th>Apr <a href="#">2016</a></th>
-        <th>Apr <a href="#">2017</a></th>
-        <th>Apr <a href="#">2018</a></th>
-        <th>Apr <a href="#">2019</a></th>
-    </tr>*@
     <tr>
         <th></th>
         <th>Jan</th>
@@ -42,118 +30,44 @@
         <th>Nov</th>
         <th>Dev</th>
     </tr>
+
+    @foreach(var assetRow in Model.AssetRows) {
+        <tr>
+            <th><a href="@assetRow.LinkUrl">@assetRow.Name</a></th>
+            
+            @foreach (var value in assetRow.Values)
+            {
+                <td>@value</td>
+            }
+        </tr>
+    }
+
     <tr>
-        <th>Ruth House</th>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
+        <th colspan="11"></th>
     </tr>
-    <tr>
-        <th>Skyline Plaza</th>
-        <td>4800.00</td>
-        <td>4800.00</td>
-        <td>4800.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-    </tr>
-    <tr>
-        <th>Rent</th>
-        <td>(5000.00)</td>
-        <td>4000.00</td>
-        <td>3000.00</td>
-        <td>2000.00</td>
-        <td>1000.00</td>
-        <td>0000.00</td>
-        <td>1000.00</td>
-        <td>2000.00</td>
-        <td>3000.00</td>
-        <td>4000.00</td>
-        <td>4000.00</td>
-        <td>4000.00</td>
-    </tr>
-    <tr>
-        <th>Bills</th>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-    </tr>
-    <tr>
-        <th>Spending</th>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-    </tr>
-@*    <tr>
-        <th><a href="#" class="link-button">Add</a></th>
-    </tr>*@
-    <tr>
-        <th colspan="13"></th>
-    </tr>
+
     <tr>
         <th>Cashflow:</th>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
+        @foreach (var value in Model.CashflowRow.Values)
+        {
+            <td>@value</td>
+        }
     </tr>
+
+    <tr>
+        <th colspan="11"></th>
+    </tr>
+
+    <tr>
+        <th>Cash:</th>
+        @foreach (var value in Model.CashRow.Values)
+        {
+            <td>@value</td>
+        }
+    </tr>
+
     <tr>
         <th colspan="13"></th>
     </tr>
-    <tr>
-        <th>Cash:</th>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-    </tr>
+
 </table>

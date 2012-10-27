@@ -97,6 +97,10 @@ div.login a {
     color: #eee;
 }
 
+div.login a:hover {
+    color: #fff;
+}
+
 .header-inner, .menu-inner, .page-inner, .footer-inner {    
     max-width: 920px;
     margin-left: auto;
@@ -138,7 +142,7 @@ ul.login a {
 
 div.menu {
     background-color: #55337a;
-    color: #deab30;
+    /*color: #deab30;*/
     padding-top: 4px;
     padding-bottom: 4px;
 }
@@ -163,9 +167,12 @@ div.menu-inner {
 
 .menu a {
     text-decoration: none;
-    color: white;
-    /*font-size:large;*/
+    color: #ddd;
     font-size: 1.4em;
+}
+
+.menu a:hover {
+    color: #fff;
 }
 
 div.page {
@@ -243,3 +250,8 @@ td.negative {
     background-color: #ff5e5e;
 }
 
+.page a {
+    text-decoration: none;
+    color: #33f;
+    font-weight: bolder;
+}

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model FinProjMvc.ViewModels.ProjectionViewModel
+@{
     ViewBag.Title = "Decade";
 }
 
@@ -21,104 +22,44 @@
             <th><a href="/Projection/Year/@year">@year</a></th>
         }
     </tr>
-    <tr>
-        <th><a href="/Asset/Details/1">Ruth House</a></th>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-        <td>5640.00</td>
-    </tr>
-    <tr>
-        <th>Skyline Plaza</th>
-        <td>4800.00</td>
-        <td>4800.00</td>
-        <td>4800.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-        <td>9600.00</td>
-    </tr>
-    <tr>
-        <th>Rent</th>
-        <td>(5000.00)</td>
-        <td>4000.00</td>
-        <td>3000.00</td>
-        <td>2000.00</td>
-        <td>1000.00</td>
-        <td>0000.00</td>
-        <td>1000.00</td>
-        <td>2000.00</td>
-        <td>3000.00</td>
-        <td>4000.00</td>
-    </tr>
-    <tr>
-        <th>Bills</th>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-        <td>3000.00</td>
-    </tr>
-    <tr>
-        <th>Spending</th>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-    </tr>
-@*    <tr>
-        <th><a href="#" class="link-button">Add</a></th>
-    </tr>*@
+
+    @foreach(var assetRow in Model.AssetRows) {
+        <tr>
+            <th><a href="@assetRow.LinkUrl">@assetRow.Name</a></th>
+            
+            @foreach (var value in assetRow.Values)
+            {
+                <td>@value</td>
+            }
+        </tr>
+    }
+
     <tr>
         <th colspan="11"></th>
     </tr>
+
     <tr>
         <th>Cashflow:</th>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
+        @foreach (var value in Model.CashflowRow.Values)
+        {
+            <td>@value</td>
+        }
     </tr>
+
     <tr>
-        <th colspan="13"></th>
+        <th colspan="11"></th>
     </tr>
+
     <tr>
         <th>Cash:</th>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
-        <td>6000.00</td>
+        @foreach (var value in Model.CashRow.Values)
+        {
+            <td>@value</td>
+        }
     </tr>
+
+    <tr>
+        <th colspan="11"></th>
+    </tr>
+
 </table>

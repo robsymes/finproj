@@ -18,5 +18,18 @@ namespace FinProjMvc.Models
 
         public virtual List<Payment> Payments { get; set; }
 
+        public decimal MostRecentPaymentAmount(DateTime date)
+        {
+            Payment mostRecentPayment = this.Payments.OrderByDescending(p => p.Date).Where(p => p.Date <= date).FirstOrDefault();
+            if (mostRecentPayment == null)
+            {
+                return 0.00M;
+            }
+            else
+            {
+                return mostRecentPayment.Amount;
+            }                    
+        }
+
     }
 }
