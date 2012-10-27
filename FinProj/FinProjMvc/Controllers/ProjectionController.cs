@@ -11,7 +11,6 @@ namespace FinProjMvc.Controllers
 {
     public class ProjectionGenerator
     {
-        // private FinProjMvcContext db = new FinProjMvcContext();
         private IAssetRepository assetRepository;
 
         public ProjectionGenerator(IAssetRepository repository)
@@ -23,15 +22,15 @@ namespace FinProjMvc.Controllers
         {
             ProjectionViewModel viewModel = new ProjectionViewModel();
             viewModel.AssetRows = new List<RowViewModel>();
-            // foreach (var asset in db.Assets)
 
-            // List<decimal> cashFlowValues = new List<decimal>();
             Dictionary<DateTime, decimal> cashFlowValuesByDate = new Dictionary<DateTime, decimal>();
             foreach (var date in dateList)
             {
                 cashFlowValuesByDate[date] = 0.00M;
             }
-            foreach (var asset in assetRepository.GetAssets())
+
+            List<Asset> assets = assetRepository.GetAssets();
+            foreach (var asset in assets)
             {
                 RowViewModel row = new RowViewModel
                 {
@@ -75,11 +74,61 @@ namespace FinProjMvc.Controllers
 
             decimal initialCash = 0.00M;
             decimal currentCash = initialCash;
+
+            DateTime startDate = new DateTime(2000, 1, 1);  // Start date for calculating cash - hardcoded for now but should be first credit or payment date
+            // DateTime startDate = dateList[0];
+
+            DateTime endDate = dateList.Last();
+
+            List<decimal> cashValues = new List<decimal>();
+            Dictionary<DateTime, decimal> cashValuesByDate = new Dictionary<DateTime, decimal>();
+
+
+            if (decade)
+            {
+                for (DateTime date = startDate; date <= endDate; date = date.AddYears(1))
+                {
+                    foreach(var asset in assets)
+                    {
+                        decimal total = 0.0M;
+                        for (int m = 1; m <= 12; m++)
+                        {
+                            var individualMonthDate = new DateTime(date.Year, m, 1);
+                            total += asset.MostRecentPaymentAmount(individualMonthDate);
+                        }
+                        currentCash += total;
+
+                        // *********
+                        // Need to also take into account any credits/debits here
+                        // *********
+                    }
+
+                    cashValuesByDate[date] = currentCash;
+                }
+
+            }
+            else
+            {
+                for (DateTime date = startDate; date <= endDate; date = date.AddMonths(1))
+                {
+                    foreach(var asset in assets)
+                    {
+                        currentCash += asset.MostRecentPaymentAmount(date);
+
+                        // *********
+                        // Need to also take into account any credits/debits here
+                        // *********
+                    }
+
+                    cashValuesByDate[date] = currentCash;
+                }
+
+            }
+
+
             foreach (var date in dateList)
             {
-                // currentCash += cashFlowValuesByDate[date];
-                // Need to also take into account any credits/debits here
-                viewModel.CashRow.Values.Add(currentCash);
+                viewModel.CashRow.Values.Add(cashValuesByDate[date]);
             }
 
             return viewModel;
