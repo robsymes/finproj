@@ -175,6 +175,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\FinProjMvcContext.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -295,7 +296,8 @@
     <Content Include="Views\Person\Edit.cshtml" />
     <Content Include="Views\Person\Delete.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
-    <Content Include="Views\Projection\Index.cshtml" />
+    <Content Include="Views\Projection\Year.cshtml" />
+    <Content Include="Views\Projection\Decade.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

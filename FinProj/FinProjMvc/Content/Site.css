@@ -86,7 +86,7 @@ div.login a {
 }
 
 .header-inner, .menu-inner, .page-inner, .footer-inner {    
-    max-width: 720px;
+    max-width: 920px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -129,6 +129,10 @@ div.menu {
     color: #deab30;
     padding-top: 4px;
     padding-bottom: 4px;
+}
+
+div.menu-inner {
+    text-align: center;
 }
 
 .menu ul {
@@ -186,18 +190,31 @@ div.panel {
     margin-bottom: 16px;
 }
 
-table.projection {
-    margin-top: 16px;
+table.projection-decade, table.projection-year {
+    /*margin-top: 16px;*/
     background-color: #CCC;
 }
 
-table.projection th {
+table.projection-decade th, table.projection-year th {
     background-color:#ddd;
     padding: 4px;
 }
 
-table.projection td {
+table.projection-decade td, table.projection-year td {
     background-color:#eee;
     padding: 4px;
+    text-align: right;
+}
+
+table.projection-decade td {
+    min-width: 70px;
+}
+
+table.projection-year td {
+    min-width: 60px;
+}
+
+td.negative {
+    background-color: #ff5e5e;
 }
 

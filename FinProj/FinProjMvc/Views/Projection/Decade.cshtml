@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Decade";
+}
+
+<table style="margin-left:auto; margin-right:auto; margin-top:8px">
+    <tr>
+        <td><a href="/Projection/Decade/@ViewBag.PreviousYearStart"><< @ViewBag.PreviousYearStart - @ViewBag.PreviousYearEnd</a>  </td>
+        <td style="padding-left:36px; padding-right:36px;">
+            &nbsp;
+            <h2>@ViewBag.YearStart - @ViewBag.YearEnd</h2>
+        </td>
+        <td><a href="/Projection/Decade/@ViewBag.NextYearStart">@ViewBag.NextYearStart - @ViewBag.NextYearEnd >></a></td>
+    </tr>
+</table>
+
+<table class="projection-decade">
+    <tr>
+        <th></th>
+        @for (int year = ViewBag.YearStart; year <= ViewBag.YearEnd; year++)
+        {
+            <th><a href="/Projection/Year/@year">@year</a></th>
+        }
+    </tr>
+    <tr>
+        <th>Ruth House</th>
+        <td>5640.00</td>
+        <td>5640.00</td>
+        <td>5640.00</td>
+        <td>5640.00</td>
+        <td>5640.00</td>
+        <td>5640.00</td>
+        <td>5640.00</td>
+        <td>5640.00</td>
+        <td>5640.00</td>
+        <td>5640.00</td>
+    </tr>
+    <tr>
+        <th>Skyline Plaza</th>
+        <td>4800.00</td>
+        <td>4800.00</td>
+        <td>4800.00</td>
+        <td>9600.00</td>
+        <td>9600.00</td>
+        <td>9600.00</td>
+        <td>9600.00</td>
+        <td>9600.00</td>
+        <td>9600.00</td>
+        <td>9600.00</td>
+    </tr>
+    <tr>
+        <th>Rent</th>
+        <td>(5000.00)</td>
+        <td>4000.00</td>
+        <td>3000.00</td>
+        <td>2000.00</td>
+        <td>1000.00</td>
+        <td>0000.00</td>
+        <td>1000.00</td>
+        <td>2000.00</td>
+        <td>3000.00</td>
+        <td>4000.00</td>
+    </tr>
+    <tr>
+        <th>Bills</th>
+        <td>3000.00</td>
+        <td>3000.00</td>
+        <td>3000.00</td>
+        <td>3000.00</td>
+        <td>3000.00</td>
+        <td>3000.00</td>
+        <td>3000.00</td>
+        <td>3000.00</td>
+        <td>3000.00</td>
+        <td>3000.00</td>
+    </tr>
+    <tr>
+        <th>Spending</th>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+    </tr>
+    <tr>
+        <th><a href="#" class="link-button">Add</a></th>
+    </tr>
+    <tr>
+        <th colspan="11"></th>
+    </tr>
+    <tr>
+        <th>Cashflow:</th>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+    </tr>
+    <tr>
+        <th colspan="13"></th>
+    </tr>
+    <tr>
+        <th>Cash:</th>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+        <td>6000.00</td>
+    </tr>
+</table>
