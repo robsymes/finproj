@@ -27,8 +27,20 @@ textarea {
     min-height: 75px;
 }
 
+.display-label {
+    margin: 1em 0 0 0;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.display-field {
+    font-size: 1.2em;
+}
+
 .editor-label {
     margin: 1em 0 0 0;
+    color: #666;
+    font-size: 0.9em;
 }
 
 .editor-field {
@@ -181,6 +193,7 @@ table.list th {
 table.list td {
     background-color:#eee;
     padding: 4px;
+    text-align: right;
 }
 
 div.panel {
@@ -188,6 +201,18 @@ div.panel {
     background-color:#eee;
     padding: 0px 16px 16px 16px;
     margin-bottom: 16px;
+}
+
+table.date-nav {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+}
+
+table.date-nav td {
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
 }
 
 table.projection-decade, table.projection-year {

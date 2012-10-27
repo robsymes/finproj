@@ -17,6 +17,8 @@ namespace FinProjMvc.Models
         {
         }
 
-        public DbSet<Person> People { get; set; }
+        public DbSet<Asset> Assets { get; set; }
+
+        public DbSet<Payment> Payments { get; set; }
     }
 }

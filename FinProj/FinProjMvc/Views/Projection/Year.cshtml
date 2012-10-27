@@ -2,19 +2,14 @@
     ViewBag.Title = "Year";
 }
 
-<table style="margin-left:auto; margin-right:auto; margin-top:8px">
+<table class="date-nav">
     <tr>
         <td><a href="/Projection/Year/@ViewBag.PreviousYear"><< @ViewBag.PreviousYear</a>  </td>
-        <td style="padding-left:36px; padding-right:36px; text-align:center">
+        <td>
             <a href="/Projection/Decade/@ViewBag.DecadeStartYear">@ViewBag.DecadeStartYear - @ViewBag.DecadeEndYear</a>
             <h2>@ViewBag.Year</h2>
         </td>
         <td><a href="/Projection/Year/@ViewBag.NextYear">@ViewBag.NextYear >></a></td>
-    </tr>
-    <tr>        
-        <td colspan="5" style="text-align:center">
-            
-        </td>
     </tr>
 </table>
 
@@ -122,9 +117,9 @@
         <td>6000.00</td>
         <td>6000.00</td>
     </tr>
-    <tr>
+@*    <tr>
         <th><a href="#" class="link-button">Add</a></th>
-    </tr>
+    </tr>*@
     <tr>
         <th colspan="13"></th>
     </tr>
