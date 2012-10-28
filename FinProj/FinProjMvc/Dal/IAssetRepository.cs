@@ -9,6 +9,7 @@ namespace FinProjMvc.Dal
     public interface IAssetRepository
     {
         List<Asset> GetAssets();
+        List<Credit> GetCredits();
 
     }
 }

@@ -15,5 +15,10 @@ namespace FinProjMvc.Dal
             // return db.Assets.ToList();
             return db.Assets.Include("Payments").ToList();
         }
+
+        public List<Credit> GetCredits()
+        {
+            return db.Credits.ToList();
+        }
     }
 }

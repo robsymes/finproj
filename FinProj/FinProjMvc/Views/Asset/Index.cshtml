@@ -6,9 +6,6 @@
 
 <h2>Assets</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="list">
     <tr>
         <th>
@@ -20,20 +17,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Enabled)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Payments", "Payments", new { id=item.AssetId }) |
-            @Html.ActionLink("Edit", "Edit", new { id=item.AssetId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AssetId })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Payments", "Payments", new { id=item.AssetId }) |
+                @Html.ActionLink("Edit", "Edit", new { id=item.AssetId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.AssetId })
+            </td>
+        </tr>
+    }
 </table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

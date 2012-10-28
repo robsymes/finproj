@@ -255,3 +255,48 @@ td.negative {
     color: #33f;
     font-weight: bolder;
 }
+
+.footer a {
+    text-decoration: none;
+    /*color: #6d4e90;*/
+    color: #5d2c2c;
+    font-weight: bolder;
+}
+
+.button {
+	border: 1px solid #847D8A;
+	background-color: #413A47;
+	color: White;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.button:hover {
+	color: #D2B750;
+}
+
+.link-button {
+	margin-top:12px;
+	text-align:center;
+	background-color:#C7C7C7;
+	border:solid 1px #AAAAAA;
+ 	font-size:smaller;
+	padding-top:4px;		
+	padding-bottom:4px;
+	padding-left:16px;
+	padding-right:16px;	
+}
+
+.link-button:hover {
+	background-color:#D0D0D0;
+}
+
+td.positive {
+    color: #086208;
+}
+
+td.negative {
+    color: #ba2b2b;
+}

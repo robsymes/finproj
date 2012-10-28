@@ -174,6 +174,7 @@
     <Compile Include="Controllers\ProjectionController.cs" />
     <Compile Include="Dal\EFAssetRepository.cs" />
     <Compile Include="Dal\IAssetRepository.cs" />
+    <Compile Include="Dal\ProjectionGenerator.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

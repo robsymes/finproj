@@ -15,19 +15,21 @@ namespace FinProjMvc
 
             int currentYear = DateTime.Today.Year;
             int currentDecadeBaseYear = currentYear / 10 * 10;
+
+            routes.MapRoute(
+                name: "ProjectionYear",
+                url: "Projection/{action}/{year}",
+                // defaults: new { controller = "Projection", action = "Decade", id = UrlParameter.Optional }
+                defaults: new { controller = "Projection", action = "Year", year = currentYear }
+            );
+
             routes.MapRoute(
                 name: "ProjectionDecade",
-                url: "Projection/{action}/{year}",
+                url: "Projection/Decade/{year}",
                 // defaults: new { controller = "Projection", action = "Decade", id = UrlParameter.Optional }
                 defaults: new { controller = "Projection", action = "Decade", year = currentDecadeBaseYear }
             );
 
-            routes.MapRoute(
-                name: "ProjectionYear",
-                url: "Projection/Year/{year}",
-                // defaults: new { controller = "Projection", action = "Decade", id = UrlParameter.Optional }
-                defaults: new { controller = "Projection", action = "Year", year = currentYear }
-            );
 
             routes.MapRoute(
                 name: "Default",

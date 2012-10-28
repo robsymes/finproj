@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Asset Details</h2>
 
 <fieldset>
     <legend>Asset</legend>
@@ -26,19 +26,14 @@
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.AssetId }) |
+    @Html.ActionLink("Delete", "Delete", new { id=Model.AssetId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
 
 <h2>Payments</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create", "Payment", new { AssetId = Model.AssetId }, null)
-</p>
 <table class="list">
     <tr>
-@*        <th>
-            @Html.DisplayNameFor(model => model.AssetId)
-        </th>*@
         <th>
             Date
         </th>
@@ -48,24 +43,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model.Payments.OrderBy(p => p.Date)) {
-    <tr>
-@*        <td>
-            @Html.DisplayFor(modelItem => item.AssetId)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-            @*@item.Date.ToString("dd MMM yyyy")*@
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", "Payment", new { id=item.PaymentId }, null) |
-            @Html.ActionLink("Delete", "Delete", "Payment", new { id=item.PaymentId }, null)
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model.Payments.OrderBy(p => p.Date)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Payment", new { id=item.PaymentId }, null) |
+                @Html.ActionLink("Delete", "Delete", "Payment", new { id=item.PaymentId }, null)
+            </td>
+        </tr>
+    }
 </table>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Payment", new { AssetId = Model.AssetId }, null)
+</p>
+
+<div class="panel">
+    <p>
+        Set the points at which the monthly asset payment changes.
+    </p>
+    <p>
+        The other monthly payments will be automatically generated.
+    </p>
+</div>
 

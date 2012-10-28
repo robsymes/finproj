@@ -29,20 +29,38 @@
             
             @foreach (var value in assetRow.Values)
             {
-                <td>@value</td>
+                if (value >= 0)
+                {
+                    <td class="positive">@value</td>
+                }
+                else
+                {
+                    <td class="negative">(@(-value))</td>
+                }                
             }
         </tr>
     }
 
     <tr>
-        <th colspan="11"></th>
+        <th style="min-width:90px; padding-bottom:16px">
+            @Html.ActionLink("New", "Create", "Asset", null, new { @class = "link-button", title = "New Asset" })
+        </th>
+        <th colspan="10" style="text-align:left">
+        </th>
     </tr>
 
     <tr>
         <th>Cashflow:</th>
         @foreach (var value in Model.CashflowRow.Values)
         {
-            <td>@value</td>
+            if (value >= 0)
+            {
+                <td class="positive">@value</td>
+            }
+            else
+            {
+                <td class="negative">(@(-value))</td>
+            }                
         }
     </tr>
 
@@ -54,7 +72,14 @@
         <th title="Cash at year end">Cash:</th>
         @foreach (var value in Model.CashRow.Values)
         {
-            <td>@value</td>
+            if (value >= 0)
+            {
+                <td class="positive">@value</td>
+            }
+            else
+            {
+                <td class="negative">(@(-value))</td>
+            }                
         }
     </tr>
 

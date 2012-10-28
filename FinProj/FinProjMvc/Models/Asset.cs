@@ -9,6 +9,11 @@ namespace FinProjMvc.Models
 {
     public class Asset
     {
+        public Asset()
+        {
+            Enabled = true;
+        }
+
         public int AssetId { get; set; }
         
         public bool Enabled { get; set; }  // or this flag could be called "Active"?

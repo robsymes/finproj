@@ -42,6 +42,12 @@ namespace FinProjMvc.Tests.Controllers
                 },
             };
         }
+
+
+        public List<Credit> GetCredits()
+        {
+            return new List<Credit>();
+        }
     }
 
     [TestClass]

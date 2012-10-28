@@ -52,7 +52,9 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            // return View();
+            Asset asset = new Asset();
+            return View(asset);
         }
 
         //
