@@ -111,7 +111,8 @@ namespace FinProjMvc.Controllers
             Payment payment = db.Payments.Find(id);
             db.Payments.Remove(payment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            // return RedirectToAction("Index");
+            return RedirectToAction("Payments", "Asset", new { id = payment.AssetId });
         }
 
         protected override void Dispose(bool disposing)

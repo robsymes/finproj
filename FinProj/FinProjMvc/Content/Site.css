@@ -246,8 +246,14 @@ table.projection-year td {
     min-width: 60px;
 }
 
+td.positive {
+    color: #086208;
+    font-weight: bold;
+}
+
 td.negative {
-    background-color: #ff5e5e;
+    color: #ba2b2b;
+    font-weight: bold;
 }
 
 .page a {
@@ -293,10 +299,3 @@ td.negative {
 	background-color:#D0D0D0;
 }
 
-td.positive {
-    color: #086208;
-}
-
-td.negative {
-    color: #ba2b2b;
-}
