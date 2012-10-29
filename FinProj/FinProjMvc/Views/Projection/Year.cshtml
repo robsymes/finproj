@@ -5,12 +5,25 @@
 
 <table class="date-nav">
     <tr>
-        <td><a href="/Projection/Year/@ViewBag.PreviousYear"><< @ViewBag.PreviousYear</a>  </td>
+        <td>
+            @if (ViewBag.PreviousYear >= 2000)
+            {
+                <a href="/Projection/Year/@ViewBag.PreviousYear"><< @ViewBag.PreviousYear</a>
+            }
+            else
+            {
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            }
+        </td>
         <td>
             <a href="/Projection/Decade/@ViewBag.DecadeStartYear">@ViewBag.DecadeStartYear - @ViewBag.DecadeEndYear</a>
             <h2>@ViewBag.Year</h2>
         </td>
-        <td><a href="/Projection/Year/@ViewBag.NextYear">@ViewBag.NextYear >></a></td>
+        <td>
+
+            <a href="/Projection/Year/@ViewBag.NextYear">@ViewBag.NextYear >></a>
+
+        </td>
     </tr>
 </table>
 
@@ -78,7 +91,7 @@
     </tr>
 
     <tr>
-        <th>Cash:</th>
+        <th title="Cash at year end">Cash:</th>
         @foreach (var value in Model.CashRow.Values)
         {
             if (value >= 0)

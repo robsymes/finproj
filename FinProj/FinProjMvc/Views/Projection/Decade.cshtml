@@ -5,12 +5,23 @@
 
 <table class="date-nav">
     <tr>
-        <td><a href="/Projection/Decade/@ViewBag.PreviousYearStart"><< @ViewBag.PreviousYearStart - @ViewBag.PreviousYearEnd</a>  </td>
+        <td>
+            @if (ViewBag.PreviousYearStart >= 2000)
+            {
+                <a href="/Projection/Decade/@ViewBag.PreviousYearStart"><< @ViewBag.PreviousYearStart - @ViewBag.PreviousYearEnd</a>
+            }
+            else
+            {
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>    
+            }
+        </td>
         <td>
             &nbsp;
             <h2>@ViewBag.YearStart - @ViewBag.YearEnd</h2>
         </td>
-        <td><a href="/Projection/Decade/@ViewBag.NextYearStart">@ViewBag.NextYearStart - @ViewBag.NextYearEnd >></a></td>
+        <td>
+            <a href="/Projection/Decade/@ViewBag.NextYearStart">@ViewBag.NextYearStart - @ViewBag.NextYearEnd >></a>
+        </td>
     </tr>
 </table>
 

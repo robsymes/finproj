@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace FinProjMvc.Controllers
 {
-    [Authorize]
     public class AboutController : Controller
     {
         //

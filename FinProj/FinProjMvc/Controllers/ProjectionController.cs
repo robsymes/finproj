@@ -20,7 +20,7 @@ namespace FinProjMvc.Controllers
             ViewBag.NextYearStart = year + 10;
             ViewBag.NextYearEnd = year + 19;
 
-            IAssetRepository repository = new EFAssetRepository();
+            IAssetRepository repository = new EFAssetRepository(User.Identity.Name);
             ProjectionGenerator generator = new ProjectionGenerator(repository);
             List<DateTime> dateList = new List<DateTime>();
             for (int y = year; y < year + 10; y++)
@@ -40,7 +40,7 @@ namespace FinProjMvc.Controllers
             ViewBag.DecadeStartYear = year / 10 * 10;
             ViewBag.DecadeEndYear = year / 10 * 10 + 9;
 
-            IAssetRepository repository = new EFAssetRepository();
+            IAssetRepository repository = new EFAssetRepository(User.Identity.Name);
             ProjectionGenerator generator = new ProjectionGenerator(repository);
             List<DateTime> dateList = new List<DateTime>();
             for (int m = 1; m <= 12; m++)

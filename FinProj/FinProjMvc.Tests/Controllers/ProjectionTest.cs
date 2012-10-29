@@ -10,46 +10,6 @@ using System.Text;
 
 namespace FinProjMvc.Tests.Controllers
 {
-    public class TestAssetRepository : IAssetRepository
-    {
-        public List<Asset> GetAssets()
-        {
-            return new List<Asset>
-            {
-                new Asset
-                {
-                    AssetId = 1,
-                    Name = "Asset One",
-                    Enabled = true,
-                    Payments = new List<Payment>
-                    { 
-                        new Payment { Date = new DateTime(2010, 1, 1), Amount = 360.0M },
-                        new Payment { Date = new DateTime(2011, 1, 1), Amount = 420.0M },
-                        new Payment { Date = new DateTime(2012, 1, 1), Amount = 480.0M },
-                    }
-                },
-                new Asset
-                {
-                    AssetId = 2,
-                    Name = "Asset Two",
-                    Enabled = true,
-                    Payments = new List<Payment>
-                    { 
-                        new Payment { Date = new DateTime(2010, 1, 1), Amount = 200.0M },
-                        new Payment { Date = new DateTime(2011, 1, 1), Amount = 300.0M },
-                        new Payment { Date = new DateTime(2012, 1, 1), Amount = 400.0M },
-                    }
-                },
-            };
-        }
-
-
-        public List<Credit> GetCredits()
-        {
-            return new List<Credit>();
-        }
-    }
-
     [TestClass]
     public class ProjectionTest
     {
@@ -64,7 +24,7 @@ namespace FinProjMvc.Tests.Controllers
                 new DateTime(2013, 1, 1),
             };
 
-            IAssetRepository repository = new TestAssetRepository();
+            IAssetRepository repository = new TestAssetRepository("rob");
             ProjectionGenerator generator = new ProjectionGenerator(repository);
             ProjectionViewModel viewModel = generator.GenerateProjection(dateList, true);
 
@@ -89,7 +49,7 @@ namespace FinProjMvc.Tests.Controllers
                 new DateTime(2012, 2, 1),
             };
 
-            IAssetRepository repository = new TestAssetRepository();
+            IAssetRepository repository = new TestAssetRepository("rob");
             ProjectionGenerator generator = new ProjectionGenerator(repository);
             ProjectionViewModel viewModel = generator.GenerateProjection(dateList, false);
 
