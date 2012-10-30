@@ -6,19 +6,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FinProjMvc.Models;
+using FinProjMvc.Dal;
 
 namespace FinProjMvc.Controllers
 {
     public class PaymentController : Controller
     {
-        private FinProjMvcContext db = new FinProjMvcContext();
+        // private FinProjMvcContext db = new FinProjMvcContext();
 
         //
         // GET: /Payment/
 
         public ActionResult Index()
         {
-            return View(db.Payments.ToList());
+            IPaymentRepository repository = new EFPaymentRepository(User.Identity.Name);
+            // return View(db.Payments.ToList());
+            return View(repository.GetList());
         }
 
         //
@@ -26,7 +29,9 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Payment payment = db.Payments.Find(id);
+            IPaymentRepository repository = new EFPaymentRepository(User.Identity.Name);
+            // Payment payment = db.Payments.Find(id);
+            Payment payment = repository.Get(id);
             if (payment == null)
             {
                 return HttpNotFound();
@@ -51,9 +56,10 @@ namespace FinProjMvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Payments.Add(payment);
-                db.SaveChanges();
-                // return RedirectToAction("Index");
+                IPaymentRepository repository = new EFPaymentRepository(User.Identity.Name);
+                // db.Payments.Add(payment);
+                // db.SaveChanges();
+                repository.Insert(payment);
                 return RedirectToAction("Payments", "Asset", new { id = payment.AssetId });
             }
 
@@ -65,7 +71,9 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Payment payment = db.Payments.Find(id);
+            IPaymentRepository repository = new EFPaymentRepository(User.Identity.Name);
+            // Payment payment = db.Payments.Find(id);
+            Payment payment = repository.Get(id);
             if (payment == null)
             {
                 return HttpNotFound();
@@ -79,11 +87,12 @@ namespace FinProjMvc.Controllers
         [HttpPost]
         public ActionResult Edit(Payment payment)
         {
+            IPaymentRepository repository = new EFPaymentRepository(User.Identity.Name);
             if (ModelState.IsValid)
             {
-                db.Entry(payment).State = EntityState.Modified;
-                db.SaveChanges();
-                // return RedirectToAction("Index");
+                // db.Entry(payment).State = EntityState.Modified;
+                // db.SaveChanges();
+                repository.Update(payment);
                 return RedirectToAction("Payments", "Asset", new { id = payment.AssetId });
             }
             return View(payment);
@@ -94,7 +103,9 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Payment payment = db.Payments.Find(id);
+            IPaymentRepository repository = new EFPaymentRepository(User.Identity.Name);
+            // Payment payment = db.Payments.Find(id);
+            Payment payment = repository.Get(id);
             if (payment == null)
             {
                 return HttpNotFound();
@@ -108,16 +119,18 @@ namespace FinProjMvc.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Payment payment = db.Payments.Find(id);
-            db.Payments.Remove(payment);
-            db.SaveChanges();
-            // return RedirectToAction("Index");
+            IPaymentRepository repository = new EFPaymentRepository(User.Identity.Name);
+            // Payment payment = db.Payments.Find(id);
+            Payment payment = repository.Get(id);
+            // db.Payments.Remove(payment);
+            // db.SaveChanges();
+            repository.Delete(payment);
             return RedirectToAction("Payments", "Asset", new { id = payment.AssetId });
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            // db.Dispose();
             base.Dispose(disposing);
         }
     }

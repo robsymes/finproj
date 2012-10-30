@@ -15,6 +15,8 @@ namespace FinProjMvc.Models
         }
 
         public int AssetId { get; set; }
+
+        public string Username { get; set; }
         
         public bool Enabled { get; set; }  // or this flag could be called "Active"?
 

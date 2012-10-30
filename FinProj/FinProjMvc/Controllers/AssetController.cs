@@ -6,19 +6,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FinProjMvc.Models;
+using FinProjMvc.Dal;
 
 namespace FinProjMvc.Controllers
 {
     public class AssetController : Controller
     {
-        private FinProjMvcContext db = new FinProjMvcContext();
-
         //
         // GET: /Asset/
 
         public ActionResult Index()
         {
-            return View(db.Assets.ToList());
+            IAssetRepository repository = new EFAssetRepository(User.Identity.Name);
+            return View(repository.GetList());
         }
 
         //
@@ -26,7 +26,8 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Asset asset = db.Assets.Find(id);
+            IAssetRepository repository = new EFAssetRepository(User.Identity.Name);
+            Asset asset = repository.Get(id);
             if (asset == null)
             {
                 return HttpNotFound();
@@ -39,7 +40,8 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Payments(int id = 0)
         {
-            Asset asset = db.Assets.Find(id);
+            IAssetRepository repository = new EFAssetRepository(User.Identity.Name);
+            Asset asset = repository.Get(id);
             if (asset == null)
             {
                 return HttpNotFound();
@@ -63,10 +65,10 @@ namespace FinProjMvc.Controllers
         [HttpPost]
         public ActionResult Create(Asset asset)
         {
+            IAssetRepository repository = new EFAssetRepository(User.Identity.Name);
             if (ModelState.IsValid)
             {
-                db.Assets.Add(asset);
-                db.SaveChanges();
+                repository.Insert(asset);
                 return RedirectToAction("Index");
             }
 
@@ -78,7 +80,8 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Asset asset = db.Assets.Find(id);
+            IAssetRepository repository = new EFAssetRepository(User.Identity.Name);
+            Asset asset = repository.Get(id);
             if (asset == null)
             {
                 return HttpNotFound();
@@ -92,10 +95,10 @@ namespace FinProjMvc.Controllers
         [HttpPost]
         public ActionResult Edit(Asset asset)
         {
+            IAssetRepository repository = new EFAssetRepository(User.Identity.Name);
             if (ModelState.IsValid)
             {
-                db.Entry(asset).State = EntityState.Modified;
-                db.SaveChanges();
+                repository.Update(asset);
                 return RedirectToAction("Index");
             }
             return View(asset);
@@ -106,7 +109,8 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Asset asset = db.Assets.Find(id);
+            IAssetRepository repository = new EFAssetRepository(User.Identity.Name);
+            Asset asset = repository.Get(id);
             if (asset == null)
             {
                 return HttpNotFound();
@@ -120,15 +124,15 @@ namespace FinProjMvc.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Asset asset = db.Assets.Find(id);
-            db.Assets.Remove(asset);
-            db.SaveChanges();
+            IAssetRepository repository = new EFAssetRepository(User.Identity.Name);
+            Asset asset = repository.Get(id);
+            repository.Delete(asset);
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            // db.Dispose();
             base.Dispose(disposing);
         }
     }

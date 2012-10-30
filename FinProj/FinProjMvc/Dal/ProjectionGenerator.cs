@@ -10,10 +10,12 @@ namespace FinProjMvc.Dal
     public class ProjectionGenerator
     {
         private IAssetRepository assetRepository;
+        private ICreditRepository creditRepository;
 
-        public ProjectionGenerator(IAssetRepository repository)
+        public ProjectionGenerator(IAssetRepository aRepository, ICreditRepository cRepository)
         {
-            assetRepository = repository;
+            assetRepository = aRepository;
+            creditRepository = cRepository;
         }
 
         public ProjectionViewModel GenerateProjection(List<DateTime> dateList, bool decade)
@@ -27,8 +29,8 @@ namespace FinProjMvc.Dal
                 cashFlowValuesByDate[date] = 0.00M;
             }
 
-            List<Asset> assets = assetRepository.GetAssets();
-            List<Credit> credits = assetRepository.GetCredits();
+            List<Asset> assets = assetRepository.GetList();
+            List<Credit> credits = creditRepository.GetList();
 
             foreach (var asset in assets)
             {

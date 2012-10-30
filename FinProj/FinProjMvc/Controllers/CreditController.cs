@@ -6,19 +6,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FinProjMvc.Models;
+using FinProjMvc.Dal;
 
 namespace FinProjMvc.Controllers
 {
     public class CreditController : Controller
     {
-        private FinProjMvcContext db = new FinProjMvcContext();
-
         //
         // GET: /Credit/
 
         public ActionResult Index()
         {
-            return View(db.Credits.ToList());
+            ICreditRepository repository = new EFCreditRepository(User.Identity.Name);
+            return View(repository.GetList());
         }
 
         //
@@ -26,7 +26,22 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Credit credit = db.Credits.Find(id);
+            ICreditRepository repository = new EFCreditRepository(User.Identity.Name);
+            Credit credit = repository.Get(id);
+            if (credit == null)
+            {
+                return HttpNotFound();
+            }
+            return View(credit);
+        }
+
+        //
+        // GET: /Credit/Payments/5
+
+        public ActionResult Payments(int id = 0)
+        {
+            ICreditRepository repository = new EFCreditRepository(User.Identity.Name);
+            Credit credit = repository.Get(id);
             if (credit == null)
             {
                 return HttpNotFound();
@@ -40,6 +55,8 @@ namespace FinProjMvc.Controllers
         public ActionResult Create()
         {
             return View();
+            //Credit credit = new Credit();
+            //return View(credit);
         }
 
         //
@@ -48,10 +65,10 @@ namespace FinProjMvc.Controllers
         [HttpPost]
         public ActionResult Create(Credit credit)
         {
+            ICreditRepository repository = new EFCreditRepository(User.Identity.Name);
             if (ModelState.IsValid)
             {
-                db.Credits.Add(credit);
-                db.SaveChanges();
+                repository.Insert(credit);
                 return RedirectToAction("Index");
             }
 
@@ -63,7 +80,8 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Credit credit = db.Credits.Find(id);
+            ICreditRepository repository = new EFCreditRepository(User.Identity.Name);
+            Credit credit = repository.Get(id);
             if (credit == null)
             {
                 return HttpNotFound();
@@ -77,10 +95,10 @@ namespace FinProjMvc.Controllers
         [HttpPost]
         public ActionResult Edit(Credit credit)
         {
+            ICreditRepository repository = new EFCreditRepository(User.Identity.Name);
             if (ModelState.IsValid)
             {
-                db.Entry(credit).State = EntityState.Modified;
-                db.SaveChanges();
+                repository.Update(credit);
                 return RedirectToAction("Index");
             }
             return View(credit);
@@ -91,7 +109,8 @@ namespace FinProjMvc.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Credit credit = db.Credits.Find(id);
+            ICreditRepository repository = new EFCreditRepository(User.Identity.Name);
+            Credit credit = repository.Get(id);
             if (credit == null)
             {
                 return HttpNotFound();
@@ -105,15 +124,15 @@ namespace FinProjMvc.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Credit credit = db.Credits.Find(id);
-            db.Credits.Remove(credit);
-            db.SaveChanges();
+            ICreditRepository repository = new EFCreditRepository(User.Identity.Name);
+            Credit credit = repository.Get(id);
+            repository.Delete(credit);
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            // db.Dispose();
             base.Dispose(disposing);
         }
     }

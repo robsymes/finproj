@@ -10,6 +10,8 @@ namespace FinProjMvc.Models
     {
         public int CreditId { get; set; }
 
+        public string Username { get; set; }
+
         [Required(ErrorMessage = "A Date is required")]
         [DisplayFormat(DataFormatString = "{0:MMM yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }

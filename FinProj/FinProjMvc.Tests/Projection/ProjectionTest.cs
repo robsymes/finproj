@@ -24,8 +24,9 @@ namespace FinProjMvc.Tests.Controllers
                 new DateTime(2013, 1, 1),
             };
 
-            IAssetRepository repository = new TestAssetRepository("rob");
-            ProjectionGenerator generator = new ProjectionGenerator(repository);
+            IAssetRepository assetRepository = new TestAssetRepository("rob");
+            ICreditRepository creditRepository = new TestCreditRepository("rob");
+            ProjectionGenerator generator = new ProjectionGenerator(assetRepository, creditRepository);
             ProjectionViewModel viewModel = generator.GenerateProjection(dateList, true);
 
             Assert.AreEqual(2, viewModel.AssetRows.Count);
@@ -49,8 +50,9 @@ namespace FinProjMvc.Tests.Controllers
                 new DateTime(2012, 2, 1),
             };
 
-            IAssetRepository repository = new TestAssetRepository("rob");
-            ProjectionGenerator generator = new ProjectionGenerator(repository);
+            IAssetRepository assetRepository = new TestAssetRepository("rob");
+            ICreditRepository creditRepository = new TestCreditRepository("rob");
+            ProjectionGenerator generator = new ProjectionGenerator(assetRepository, creditRepository);
             ProjectionViewModel viewModel = generator.GenerateProjection(dateList, false);
 
             Assert.AreEqual(2, viewModel.AssetRows.Count);

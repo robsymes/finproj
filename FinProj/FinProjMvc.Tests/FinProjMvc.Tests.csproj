@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\TestCreditRepository.cs" />
     <Compile Include="Projection\ProjectionTest.cs" />
     <Compile Include="Controllers\TestAssetRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

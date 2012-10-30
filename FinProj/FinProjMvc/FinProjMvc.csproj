@@ -173,7 +173,11 @@
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProjectionController.cs" />
     <Compile Include="Dal\EFAssetRepository.cs" />
+    <Compile Include="Dal\EFCreditRepository.cs" />
+    <Compile Include="Dal\EFPaymentRepository.cs" />
     <Compile Include="Dal\IAssetRepository.cs" />
+    <Compile Include="Dal\ICreditRepository.cs" />
+    <Compile Include="Dal\IPaymentRepository.cs" />
     <Compile Include="Dal\ProjectionGenerator.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">

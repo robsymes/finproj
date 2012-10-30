@@ -16,7 +16,7 @@ namespace FinProjMvc.Tests.Controllers
             _username = username;
         }
 
-        public List<Asset> GetAssets()
+        public List<Asset> GetList()
         {
             return new List<Asset>
             {
@@ -48,10 +48,34 @@ namespace FinProjMvc.Tests.Controllers
         }
 
 
-        public List<Credit> GetCredits()
+        //public List<Credit> GetCredits()
+        //{
+        //    return new List<Credit>();
+        //}
+
+        public Asset Get(int id)
         {
-            return new List<Credit>();
+            throw new NotImplementedException();
         }
 
+        public void Insert(Asset asset)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Asset asset)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Asset asset)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
